@@ -1,0 +1,29 @@
+[package]
+name = "binweave"
+version = "0.1.0"
+description = "A local, auditable dual-agent analysis workspace"
+authors = ["Binweave contributors"]
+edition = "2021"
+rust-version = "1.92"
+
+[lib]
+name = "binweave_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1", features = ["v4", "serde"] }
+tokio = { version = "1", features = ["process", "io-util", "time", "sync", "rt-multi-thread", "macros"] }
+rusqlite = { version = "0.32", features = ["bundled"] }
+toml = "0.8"
+dirs = "6"
+which = "7"
+
+[dev-dependencies]
+tempfile = "3"
